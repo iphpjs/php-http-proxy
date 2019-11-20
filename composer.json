@@ -1,0 +1,15 @@
+{
+    "name": "apple/php-http-proxy",
+    "description": "A http proxy write by php.",
+    "type": "tool",
+    "require": {
+        "guzzlehttp/guzzle": "^6.4"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "NetworkRanger",
+            "email": "17346503142@163.com"
+        }
+    ]
+}

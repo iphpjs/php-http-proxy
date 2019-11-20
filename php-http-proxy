@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+
+$root = __DIR__;
+
+$host = '127.0.0.1';
+$port = '8071';
+
+$command = sprintf('php -S %s:%d -t %s %s', $host, $port, escapeshellarg($root), escapeshellarg($root . DIRECTORY_SEPARATOR . 'router.php'));
+
+class Output
+{
+    public function writeln($str)
+    {
+        fwrite(STDOUT, $str . PHP_EOL);
+    }
+}
+
+$output = new Output();
+$output->writeln(sprintf('PHP Proxy server is started On <http://%s:%s/>', '0.0.0.0' == $host ? '127.0.0.1' : $host, $port));
+$output->writeln(sprintf('You can exit with <info>`CTRL-C`</info>'));
+$output->writeln(sprintf('Document root is: %s', $root));
+passthru($command);
